@@ -9,17 +9,58 @@
 </head>
 <body>
     <div id="container">
-        <h2>Ninja Gold</h2>
+        <h1>Ninja Gold</h1>
+        <h3>Your Gold: {{ request.session.gold_count }}</h3>
         <div id="places">
             <div class="place">
                 <form action="/process_money" method="post">
+                    {% csrf_token %}
                     <input type="hidden" name="farm">
                     <h3>Farm</h3>
                     <p>(earns 10-20 golds)</p>
                     <input type="submit" value="Find Gold!">
                 </form>
             </div>
+            <div class="place">
+                <form action="/process_money" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="cave">
+                    <h3>Cave</h3>
+                    <p>(earns 5-10 golds)</p>
+                    <input type="submit" value="Find Gold!">
+                </form>
+            </div>
+            <div class="place">
+                <form action="/process_money" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="house">
+                    <h3>House</h3>
+                    <p>(earns 2-5 golds)</p>
+                    <input type="submit" value="Find Gold!">
+                </form>
+            </div>
+            <div class="place">
+                <form action="/process_money" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="casino">
+                    <h3>Casino</h3>
+                    <p>(earns/take 0-50 golds)</p>
+                    <input type="submit" value="Find Gold!">
+                </form>
+            </div>
         </div>
+        
+        <p>Activities:</p>
+        <div id="activity_window">
+            {% for activity in request.session.activities %}
+                {{ activity|safe }}
+            {% endfor %}
+        </div>
+
+        <form action="/reset" method="post">
+            {% csrf_token %}
+            <input type="submit" value="Reset">
+        </form>
     </div>
 </body>
 </html>
