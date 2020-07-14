@@ -1,0 +1,17 @@
+body *{
+    margin: 0px;
+    /* border: 1px dotted red; */
+}
+#container {
+    width: 900px;
+    margin: 0px auto;
+}
+    #container #places{
+        width: 30%;
+        height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        border: 2px solid black;
+    }

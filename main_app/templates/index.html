@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Ninja Money</title>
+</head>
+<body>
+    <div id="container">
+        <h2>Ninja Gold</h2>
+        <div id="places">
+            <div class="place">
+                <form action="/process_money" method="post">
+                    <input type="hidden" name="farm">
+                    <h3>Farm</h3>
+                    <p>(earns 10-20 golds)</p>
+                    <input type="submit" value="Find Gold!">
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
